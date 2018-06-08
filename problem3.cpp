@@ -1,23 +1,10 @@
 #include <iostream>
+#include "common.h"
 using namespace std;
+
 int main()
 {
-    bool *isPrime = new bool[100000];
-    for(int i = 2; i != 100000; i++)
-    {
-        isPrime[i] = true;
-    }
-    isPrime[0] = isPrime[1] = false;
-    for (int i = 2; i <= 100000; i++)
-    {
-        if (isPrime[i])
-        {
-            for(int j = 2 * i; j <= 100000; j += i)
-            {
-                isPrime[j] = false;
-            }
-        }
-    }
+    bool *isPrime = getSeive(100000);
     long long number = 600851475143;
     for (int i = 99999; i >= 0; i--)
     {
@@ -26,5 +13,6 @@ int main()
             cout << i << endl;
             break;
         }
-    } 
+    }
+    delete isPrime;
 }
