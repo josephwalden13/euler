@@ -1,2 +1,1 @@
-#include "common.cpp"
-bool *isSieve(int max);
+bool *getSieve(int max);

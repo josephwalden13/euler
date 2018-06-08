@@ -1,3 +1,4 @@
+#include "common.h"
 bool *getSieve(int max)
 {
     bool *isPrime = new bool[max];
