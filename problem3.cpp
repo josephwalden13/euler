@@ -14,5 +14,5 @@ int main()
             break;
         }
     }
-    delete isPrime;
+    delete [] isPrime;
 }

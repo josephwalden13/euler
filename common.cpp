@@ -1,4 +1,5 @@
 #include "common.h"
+#include <iostream>
 bool *getSieve(int max)
 {
     bool *isPrime = new bool[max];
@@ -18,4 +19,46 @@ bool *getSieve(int max)
         }
     }
     return isPrime;
+}
+int primeCount(int max)
+{
+    bool *isPrime = getSieve(max);    
+    int count = 0;
+    for(int i = 0; i != max; i++)
+    {
+        if (isPrime[i])
+        {
+            count++;
+        }
+    }
+    if (isPrime == false)
+    {
+        delete [] isPrime;
+    }
+    return count;
+}
+int *getPrimes(int max)
+{
+    bool *isPrime = getSieve(max);    
+    int count = 0;
+    for(int i = 0; i != max; i++)
+    {
+        if (isPrime[i])
+        {
+            count++;
+        }
+    }
+    int *primes = new int[count];
+    for(int i = 0, j = 0; j != count; i++)
+    {
+        if (isPrime[i])
+        {
+            primes[j++] = i;
+        }
+    }
+    if(isPrime == false)
+    {
+        delete [] isPrime;
+    }
+    return primes;
 }
