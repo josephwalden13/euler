@@ -1,2 +1,2 @@
 #include "common.cpp"
-bool *isSeive(int max);
+bool *isSieve(int max);

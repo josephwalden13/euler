@@ -1,4 +1,4 @@
-bool *getSeive(int max)
+bool *getSieve(int max)
 {
     bool *isPrime = new bool[max];
     for(int i = 2; i != max; i++)

@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    bool *isPrime = getSeive(100000);
+    bool *isPrime = getSieve(100000);
     long long number = 600851475143;
     for (int i = 99999; i >= 0; i--)
     {
