@@ -64,3 +64,4 @@ int *getPrimes(int max)
     }
     return primes;
 }
+
