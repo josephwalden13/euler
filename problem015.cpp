@@ -4,7 +4,7 @@ using namespace std;
 unsigned long long getPaths(int size, int x = 0, int y = 0)
 {
     unsigned long long paths = 0;
-    if (cache[x][y] > 0 && x != 0 && y != 0)
+    if (cache[x][y] > 0)
     {
         return cache[x][y];
     }
