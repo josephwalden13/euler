@@ -1,5 +1,7 @@
 #include <iostream>
-unsigned long long cache[21][21];
+#include <cstdlib>
+unsigned long long cache[51][51];
+int recursions = 0;
 using namespace std;
 unsigned long long getPaths(int size, int x = 0, int y = 0)
 {
@@ -24,18 +26,28 @@ unsigned long long getPaths(int size, int x = 0, int y = 0)
     {
         cache[x][y] = paths;
     }
+    recursions++;
     return paths;
 }
 int main()
 {
-    for (int i = 0; i != 21; i++)
+    for (int i = 0; i != 51; i++)
     {
-        for(int j = 0; j != 21; j++)
+        for(int j = 0; j != 51; j++)
         {
             cache[i][j] = 0;
         }
     }
-    cout << "Calculating paths through 20x20 lattice: " << flush;
-    unsigned long long count = getPaths(20, 0, 0);
+    int grid;
+    cout << "Enter size of lattice: ";
+    cin >> grid;
+    if (grid > 50)
+    {
+        cout << "Please enter a number under 50" << endl;
+        exit(1);
+    }
+    cout << "Calculating paths through " << grid << 'x' << grid << " lattice: " << flush;
+    unsigned long long count = getPaths(grid, 0, 0);
     cout << count << endl;
+    cout << "Total recursions: " << recursions << endl;
 }
