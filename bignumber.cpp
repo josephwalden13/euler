@@ -97,9 +97,20 @@ bignumber& bignumber::operator << (int i)
         number[j] = temp[j];
     }
 }
-void bignumber::multiply(bignumber i)
+void bignumber::int_multiply(int i)
 {
-
+    for (int j = 0; j != 512; j++)
+    {
+        number[j] *= i;
+    }   
+    for (int j = 0; j != 512; j++)
+    {
+        while(number[j] > 9)
+        {
+            number[j+1]++;
+            number[j]-=10;
+        }
+    }   
 }
 bignumber& bignumber::operator + (bignumber i)
 {

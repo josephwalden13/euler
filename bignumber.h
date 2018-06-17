@@ -11,7 +11,7 @@ class bignumber
 public:
   short (number) [512];
   void add (bignumber i);
-  void multiply(bignumber i);
+  void int_multiply(int i);
   void subtract(bignumber i);
   bignumber (string s);
   bignumber (int i);
