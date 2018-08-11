@@ -5,9 +5,9 @@ using namespace std;
 int main()
 {
     bignumber t = bignumber("1");
-    for(int i = 0; i != 1000; i++)
+    for(int i = 2; i != 101; i++)
     {
-        t.int_multiply(2);
+        t.int_multiply(i);
     }
     int length = t.value().length();
     int sum = 0;
