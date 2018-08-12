@@ -10,9 +10,9 @@ int main()
     {
         for(int j = 900; j != 999; j++)
         {
-            char buffer [6];
+            char buffer [7];
             sprintf(buffer, "%d", (i*j));
-            char reverse [6];
+            char reverse [7];
             for(int i = 5; i >= 0; i--)
             {
                 reverse[5-i] = buffer[i];
