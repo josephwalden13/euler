@@ -1,14 +1,14 @@
 #include <iostream>
 #include <cstdlib>
-unsigned long long cache[51][51];
+unsigned long long problem15_cache[51][51];
 int recursions = 0;
 using namespace std;
 unsigned long long getPaths(int size, int x = 0, int y = 0)
 {
     unsigned long long paths = 0;
-    if (cache[x][y] > 0)
+    if (problem15_cache[x][y] > 0)
     {
-        return cache[x][y];
+        return problem15_cache[x][y];
     }
     if (x < size)
     {
@@ -24,7 +24,7 @@ unsigned long long getPaths(int size, int x = 0, int y = 0)
     }
     if (paths > 0)
     {
-        cache[x][y] = paths;
+        problem15_cache[x][y] = paths;
     }
     recursions++;
     return paths;
@@ -35,12 +35,10 @@ int main()
     {
         for(int j = 0; j != 51; j++)
         {
-            cache[i][j] = 0;
+            problem15_cache[i][j] = 0;
         }
     }
-    int grid;
-    cout << "Enter size of lattice: ";
-    cin >> grid;
+    int grid = 20;
     if (grid > 50)
     {
         cout << "Please enter a number under 50" << endl;
