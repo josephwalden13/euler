@@ -40,17 +40,19 @@ int main()
     cout << "Problem " << problem << ": " << output << endl;
     return 0;
 }
-
+int factor_cache[100000];
 int factor_sum(int n)
 {
+    if(factor_cache[n] > -1)
+    {
+        return factor_cache[n];
+    }
     int sum = 0;
     int factors[10001];
-    int cache[10001];
     
     for(int i = 0; i != 10001; i++)
     {
         factors[i] = 1;
-        cache[i] = -1;
     }
     for(int i = 1; i != 10001 && i <= (n / 2) + 1; i++)
     {
@@ -69,6 +71,7 @@ int factor_sum(int n)
             }
         } 
     }
+    factor_cache[n] = sum;
     return sum;
 }
 int amicable(int n)
@@ -78,6 +81,10 @@ int amicable(int n)
 }
 int problem21()
 {
+    for(int i = 0; i != 100000; i++)
+    {
+        factor_cache[i] = -1;
+    }
     int sum = 0;
     for(int i = 0; i != 10001; i++)
     {
