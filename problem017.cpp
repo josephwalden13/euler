@@ -18,7 +18,7 @@ int length(const char* string) {
     return i;
 }
 
-const char* units[10] = {"zero", "one", "two", "three",
+const char* units[10] = {nullptr, "one", "two", "three",
                          "four", "five", "six", "seven",
                          "eight", "nine" };
 const char* teens[10] = {"ten", "eleven", "twelve", "thirteen",
