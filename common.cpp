@@ -1,8 +1,6 @@
 // common.cpp
 //
 #include <iostream>
-#include <cstdlib>
-#include <cstring>
 #include "common.h"
 #define LZZ_INLINE inline
 bool * getSieve (int max)
@@ -36,10 +34,7 @@ int primeCount (int max)
             count++; //for each prime increment count
         }
     }
-    if (isPrime)
-    {
-        delete [] isPrime; //delete the sieve memory
-    }
+    delete [] isPrime; //delete the sieve memory
     return count; //return number of primes
 }
 int * getPrimes (int max)
@@ -61,10 +56,7 @@ int * getPrimes (int max)
             primes[j++] = i; //add i to primes at index, j, and increment index, j.
         }
     }
-    if(isPrime)
-    {
-        delete [] isPrime; //delete sieve array
-    }
+    delete [] isPrime; //delete sieve array
     return primes; //return int array of primes
 }
 #undef LZZ_INLINE
