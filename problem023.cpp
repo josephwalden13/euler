@@ -6,7 +6,7 @@
 #include <cstdio>
 #include <set>
 #include <vector>
-#include "common.h"
+#include "primes.h"
 
 using namespace std;
 
@@ -34,7 +34,7 @@ int sumFactors(vector<int> *primes, int number) {
 
 int main() {
     const int max = 28125;
-    vector<int> primes = getPrimes_vector(max);
+    vector<int> primes = getPrimes(max);
 
     int* abundant = (int*)malloc(max * sizeof(int));
     for(int i = 0; i != max; i++) {
