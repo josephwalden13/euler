@@ -2,7 +2,7 @@
 	clang++ problem019.cpp -o prod/problem019
 	./prod/problem019
 23:
-	clang++ problem023.cpp -o prod/problem023
+	clang++ problem023.cpp -fopenmp -o prod/problem023
 	./prod/problem023
 24:
 	clang++ problem024.cpp -o prod/problem024
