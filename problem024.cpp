@@ -18,11 +18,11 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 
 
 int count = 0;
 
-char* removeChar(char* number, char remove) {
+char *removeChar(char *number, char remove) {
     int len = strlen(number);
-    char* output = new char[len - 1];
+    char *output = new char[len - 1];
     int i, j;
-    for(i = 0, j = 0; i != len; i++) {
+    for (i = 0, j = 0; i != len; i++) {
         if (number[i] != remove) {
             output[j] = number[i];
             j++;
@@ -32,21 +32,21 @@ char* removeChar(char* number, char remove) {
     return output;
 }
 
-char** getPermutations(char* number, char* previous) {
+char **getPermutations(char *number, char *previous) {
     int len = strlen(number);
-    if(len == 0) {
+    if (len == 0) {
         count += 1;
-        if(count == 1e6) {
+        if (count == 1e6) {
             printf("%s\n", previous);
         }
     }
-    for(int i = 0; i != len; i++) {
-        char* copy = (char*)malloc(len * sizeof (char));
+    for (int i = 0; i != len; i++) {
+        char *copy = (char *) malloc(len * sizeof(char));
         strcpy(copy, number);
 
-        char* subset = removeChar(copy, number[i]);
+        char *subset = removeChar(copy, number[i]);
         int prevLen = strlen(previous);
-        char* prevCopy = new char[prevLen + 1];
+        char *prevCopy = new char[prevLen + 1];
         strcpy(prevCopy, previous);
         prevCopy[prevLen] = number[i];
         prevCopy[prevLen + 1] = '\0';
@@ -56,7 +56,7 @@ char** getPermutations(char* number, char* previous) {
 }
 
 int main() {
-    char* number = "0123456789";
+    char *number = "0123456789";
     getPermutations(number, "");
     return 0;
 }

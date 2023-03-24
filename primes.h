@@ -10,6 +10,7 @@ using namespace std;
 #define EULER_PRIMES_H
 
 vector<int> getPrimes(int n);
-vector<int> getPrimeFactors(vector<int>* primes, int number);
+
+vector<int> getPrimeFactors(vector<int> *primes, int number);
 
 #endif //EULER_PRIMES_H

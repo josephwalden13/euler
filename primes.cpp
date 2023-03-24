@@ -10,17 +10,17 @@ using namespace std;
 
 vector<int> getPrimes(int n) {
     vector<int> primes = {};
-    int* sieve = (int*)malloc(n * sizeof(int));
-    for(int i = 2; i != n; i++) {
+    int *sieve = (int *) malloc(n * sizeof(int));
+    for (int i = 2; i != n; i++) {
         sieve[i] = 1;
     }
     sieve[0] = 0;
     sieve[1] = 0;
 
-    for(int i = 2; i != n; i++) {
-        if(sieve[i] == 1) {
+    for (int i = 2; i != n; i++) {
+        if (sieve[i] == 1) {
             primes.push_back(i);
-            for(int j = 2 * i; j < n; j += i) {
+            for (int j = 2 * i; j < n; j += i) {
                 sieve[j] = 0;
             }
         }
@@ -28,13 +28,13 @@ vector<int> getPrimes(int n) {
     return primes;
 }
 
-vector<int> getPrimeFactors(vector<int>* primes, int number) {
+vector<int> getPrimeFactors(vector<int> *primes, int number) {
     vector<int> factors = {};
-    for(int i : *primes) {
-        if(i > number / 2) {
+    for (int i: *primes) {
+        if (i > number / 2) {
             break;
         }
-        if(number % i == 0) {
+        if (number % i == 0) {
             factors.push_back(i);
         }
     }
