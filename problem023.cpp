@@ -10,18 +10,6 @@
 
 using namespace std;
 
-void expandFactors(set<int> *factors, vector<int> *primes, int n) {
-    for (int i: *primes) {
-        if (n % i == 0) {
-            int f = n / i;
-            (*factors).insert(f);
-            if (f > 3) {
-                expandFactors(factors, primes, f);
-            }
-        }
-    }
-}
-
 int sumFactors(vector<int> *primes, int number) {
     set<int> factors = {};
     expandFactors(&factors, primes, number);

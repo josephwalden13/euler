@@ -3,6 +3,7 @@
 //
 
 #include "vector"
+#include "set"
 
 using namespace std;
 
@@ -10,7 +11,9 @@ using namespace std;
 #define EULER_PRIMES_H
 
 vector<int> getPrimes(int n);
-
 vector<int> getPrimeFactors(vector<int> *primes, int number);
+void expandFactors(set<int> *factors, vector<int> *primes, int n);
+int LCM(int a, int b);
+bool *getSieve(int max);
 
 #endif //EULER_PRIMES_H
