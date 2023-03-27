@@ -5,7 +5,7 @@ using namespace std;
 
 int main() {
     long sum = 0;
-    vector<int> primes = getPrimes(2e6);
+    vector<int> primes = getPrimes(200000);
     for ( int &item: primes) {
         sum += item;
     }

@@ -1,16 +1,16 @@
 #include <iostream>
-#include "common.h"
+#include "primes.h"
 
 using namespace std;
 
 int main() {
-    bool *isPrime = getSieve(100000);
+    vector<int> primes = getPrimes(100000);
     long long number = 600851475143;
-    for (int i = 99999; i >= 0; i--) {
-        if (isPrime[i] && number % i == 0) {
-            cout << i << endl;
+    std::reverse(primes.begin(), primes.end());
+    for (const auto &item: primes) {
+        if (number % item == 0) {
+            cout << item << endl;
             break;
         }
     }
-    delete[] isPrime;
 }

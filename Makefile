@@ -5,7 +5,7 @@
 	clang++ problem002.cpp -o prod/problem002
 	prod/problem002
 3:
-	clang++ problem003.cpp common.cpp -o prod/problem003
+	clang++ problem003.cpp primes.cpp -o prod/problem003
 	prod/problem003
 4:
 	clang++ problem004.cpp -o prod/problem004
