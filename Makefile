@@ -30,7 +30,7 @@
 	prod/problem010
 11:
 	clang++ problem011.cpp -o prod/problem011
-	prod/problem010
+	prod/problem011
 12:
 	clang++ problem012.cpp -o prod/problem012
 	prod/problem012
@@ -61,10 +61,21 @@
 24:
 	clang++ problem024.cpp -o prod/problem024
 	./prod/problem024
+25:
+	clang++ problem025.cpp -o prod/problem025
+	./prod/problem025
 27:
 	clang++ problem027.cpp primes.cpp -o prod/problem027
 	time ./prod/problem027
-
+30: 
+	clang++ -fopenmp problem030.cpp -o prod/problem030
+	time ./prod/problem030
+31: 
+	clang++ problem031.cpp -o prod/problem031
+	time ./prod/problem031
+34: 
+	clang++ -fopenmp problem034.cpp -o prod/problem034
+	time ./prod/problem034
 clean:
 	rm -r problem???.dSYM
 	rm -r prod
