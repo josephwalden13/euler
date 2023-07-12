@@ -6,14 +6,14 @@
 #define LZZ_INLINE inline
 using namespace std;
 
-bignumber &bignumber::operator=(string s) {
-    for (int i = 0; i != 512; i++) {
-        number[i] = 0;
-    }
-    for (int i = s.length() - 1, j = 0; i >= 0; i--, j++) {
-        number[i] = s[j] - '0';
-    }
-}
+// bignumber &bignumber::operator=(string s) {
+//     for (int i = 0; i != 512; i++) {
+//         number[i] = 0;
+//     }
+//     for (int i = s.length() - 1, j = 0; i >= 0; i--, j++) {
+//         number[i] = s[j] - '0';
+//     }
+// }
 
 bignumber &bignumber::operator=(int i) {
     string s = to_string(i);
@@ -23,6 +23,7 @@ bignumber &bignumber::operator=(int i) {
     for (int i = s.length() - 1, j = 0; i >= 0; i--, j++) {
         number[i] = s[j] - '0';
     }
+    return *this;
 }
 
 bignumber::bignumber() {
@@ -81,6 +82,7 @@ bignumber &bignumber::operator<<(int i) {
     for (int j = 0; j != 512; j++) {
         number[j] = temp[j];
     }
+    return *this;
 }
 
 void bignumber::int_multiply(int i) {
@@ -97,22 +99,27 @@ void bignumber::int_multiply(int i) {
 
 bignumber &bignumber::operator+(bignumber i) {
     add(i);
+    return *this;
 }
 
 bignumber &bignumber::operator+=(bignumber i) {
     add(i);
+    return *this;
 }
 
 bignumber &bignumber::operator-(bignumber i) {
     subtract(i);
+    return *this;
 }
 
 bignumber &bignumber::operator-=(bignumber i) {
     subtract(i);
+    return *this;
 }
 
 bignumber &bignumber::operator++(int i) {
     add(bignumber(1));
+    return *this;
 }
 
 bool bignumber::operator==(bignumber i) {

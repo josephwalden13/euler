@@ -5,15 +5,16 @@
 #include "primes.h"
 #include "vector"
 #include "set"
+#include <iostream>
 
 using namespace std;
 
 
 vector<int> getPrimes(int n) {
     if(n == 1) {
-        return {};
+        return vector<int>();
     }
-    vector<int> primes = {};
+    vector<int> primes = vector<int>();
     int *sieve = (int *) malloc(n * sizeof(int));
     for (int i = 2; i != n; i++) {
         sieve[i] = 1;
@@ -33,12 +34,12 @@ vector<int> getPrimes(int n) {
 }
 
 vector<int> getPrimeFactors(vector<int> *primes, int number) {
-    vector<int> factors = {};
-    for (int i: *primes) {
-        if (i > number / 2) {
-            break;
+    vector<int> factors = vector<int>();
+    for(int i = 0; i != primes->size(); i++) { 
+        if (primes->at(i) > number / 2) {
+            continue;
         }
-        if (number % i == 0) {
+        if (number % primes->at(i) == 0) {
             factors.push_back(i);
         }
     }
@@ -46,9 +47,11 @@ vector<int> getPrimeFactors(vector<int> *primes, int number) {
 }
 
 void expandFactors(set<int> *factors, vector<int> *primes, int n) {
-    for (int i: *primes) {
-        if (n % i == 0) {
-            int f = n / i;
+    // cout << primes << factors;
+    vector<int>::iterator it = primes->begin();
+    for(int i = 0; i != primes->size(); i++) {
+        if (n % primes->at(i) == 0) {
+            int f = n / primes->at(i);
             (*factors).insert(f);
             if (f > 3) {
                 expandFactors(factors, primes, f);
@@ -61,17 +64,18 @@ int LCM(int a, int b) {
     vector<int> primes = getPrimes(sqrt(max(a,b)) + 1);
     vector<int> primeA = getPrimeFactors(&primes, a);
     vector<int> primeB = getPrimeFactors(&primes, b);
-    set<int> facA = { };
-    set<int> facB = { };
+    set<int> facA = set<int>();
+    set<int> facB = set<int>();
     expandFactors(&facA, &primeA, a);
     expandFactors(&facB, &primeB, b);
-    for(int x : facA) {
-        for(int y : facB) {
-            if(y == x) {
-                return y;
-            }
+    set<int>::iterator it = facA.begin();
+    while (it != facA.end()) { 
+        if (facB.find(*it) != facB.end()) { 
+            return *it;
         }
+        advance(it, facA.size());
     }
+
     if(b % a == 0) {
         return a;
     }

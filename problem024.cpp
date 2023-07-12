@@ -14,7 +14,7 @@ What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 
 #include "stdio.h"
 #include "string.h"
 #include "stdlib.h"
-#include "omp.h"
+// #include "omp.h"
 
 int count = 0;
 
@@ -56,7 +56,7 @@ char **getPermutations(char *number, char *previous) {
 }
 
 int main() {
-    char *number = "0123456789";
-    getPermutations(number, "");
+    char number[11] = {"0123456789"};
+    getPermutations(number, new char[0]);
     return 0;
 }

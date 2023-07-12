@@ -1,5 +1,5 @@
 #include <iostream>
-#include "common.h"
+#include "primes.h"
 #include <cmath>
 #include <cstdlib>
 #include <cstring>
@@ -10,8 +10,7 @@ int main() {
     cout << "Finding primes" << endl;
     long max = 1e5;
     int h = 0;
-    int *primes = getPrimes(max);
-    int count = primeCount(max);
+    vector<int> primes = getPrimes(max);
     long *factors = new long[max];
     cout << "Found primes" << endl;
     for (long n = 3, l = 3;; n += l, l++) {

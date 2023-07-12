@@ -15,7 +15,7 @@ int main() {
         if (day_of_week > 7) {
             day_of_week = 1;
         }
-        if (day > months[mon]) {
+        if (day > months[mon - 1]) {
             day = 1;
             mon++;
         }

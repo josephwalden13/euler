@@ -82,6 +82,7 @@ int getMaxLengthPath(int start) {
     if (ldiag(start) > max) {
         max = ldiag(start);
     }
+    return max;
 }
 
 int main() {

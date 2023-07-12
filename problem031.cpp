@@ -8,7 +8,7 @@ const int denomination_length = 8;
 int get_ways(int a, int start = 0) { 
     int b = 0;
     int i = start;
-    for(i; i < denomination_length; i++) { 
+    for(; i < denomination_length; i++) { 
         if(a > denominations[i]) { 
             b += get_ways(a - denominations[i], i);
         }
